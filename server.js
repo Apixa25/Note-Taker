@@ -2,7 +2,7 @@
 const express = require('express');
 const html_routes = require('./Develop/routes/html-routes')
 const api_routes = require('./Develop/routes/api-routes')
-
+// const path = require('path');
 // setting up the server
 const app = express();
 const PORT = 3000;
@@ -13,7 +13,7 @@ const PORT = 3000;
 
 
 // middleware for parsing JSON and urlencoded form data
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // static middleware
