@@ -1,17 +1,18 @@
-const fb = require('express').Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
-const uuid = require('../helpers/uuid');
+const router = require('express').Router();
+const path = require('path');
 
-// GET Route for retrieving all the feedback
-fb.get('/', (req, res) => {
-  console.info(`${req.method} request received for feedback`);
-
-  readFromFile('./db/feedback.json').then((data) => res.json(JSON.parse(data)));
+// html routes
+// this is the route that sends notes.html when a Get request is made
+router.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "./Develope/public/notes.html"));
+});
+// this is the route that sends index.html when a Get request is made
+router.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "./Develope/public/index.html"));
 });
 
-// POST Route for submitting feedback
-fb.post('/', (req, res) => {
-  // Log that a POST request was received
-  console.info(`${req.method} request received to submit feedback`);
-  
-  module.exports = fb;
+router.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "./Develope/public/index.html"));
+});
+
+  module.exports = router;
