@@ -1,33 +1,24 @@
 const router = require('express').Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
-const uuid = require('../helpers/uuid');
+const { v4: uuidv4 } = require('uuid');
+const fs = require ("fs");
 
-// GET Route for retrieving all the tips
-tips.get('/', (req, res) => {
-  console.info(`${req.method} request received for tips`);
-  readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
+// Defines the get request to this routes end point '/api/notes'
+router.get('/api/notes', async (req, res) => {
+  const dbJson = await JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
+  res.json(dbJson);
 });
 
-// POST Route for a new UX/UI tip
-tips.post('/', (req, res) => {
-  console.info(`${req.method} request received to add a tip`);
-  console.log(req.body);
-
-  const { username, topic, tip } = req.body;
-
-  if (req.body) {
-    const newTip = {
-      username,
-      tip,
-      topic,
-      tip_id: uuid(),
-    };
-
-    readAndAppend(newTip, './db/tips.json');
-    res.json(`Tip added successfully 🚀`);
-  } else {
-    res.error('Error in adding tip');
-  }
+// Defines the post request to this routes end point '/api/notes'
+router.post('/api/notes', (req, res) => {
+  const dbJson = JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
+  const newFeedback = {
+    title: req.body.title,
+    text: req.body.text,
+    id: uuidv4(),
+  };
+  dbJson.push(newFeedback);
+  fs.writeFileSync("./Develop/db/db.json",JSON.stringify(dbJson));
+  res.json(dbJson);
 });
 
-module.exports = tips;
+module.exports = router;
