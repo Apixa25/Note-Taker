@@ -1,26 +1,32 @@
 const router = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
 const fs = require ("fs");
+// npm i uuid@3.4.0 -- is what you need to run to install this dependency -- Universally Unique IDentifier,
+const { v4: uuidv4 } = require('uuid');
 
-// Defines the get request to this routes end point '/api/notes'
+
+// defines the get request to this routes end point '/api/notes'
+// this is the what retreives the record from the db.json also known as the results set
 router.get('/api/notes', async (req, res) => {
-  const dbJson = await JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
-  res.json(dbJson);
+  const getDb = await JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
+  res.json(getDb);
 });
 
-// Defines the post request to this routes end point '/api/notes'
+// defines the post request to this routes end point '/api/notes'
+// this is what sends the note data to the database -- db.json
 router.post('/api/notes', (req, res) => {
-  const dbJson = JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
+  const postDb = JSON.parse(fs.readFileSync("./Develop/db/db.json","utf8"));
   const newFeedback = {
     title: req.body.title,
     text: req.body.text,
     id: uuidv4(),
   };
-  dbJson.push(newFeedback);
-  fs.writeFileSync("./Develop/db/db.json",JSON.stringify(dbJson));
-  res.json(dbJson);
+//  push architecture is event driven: the server pushes data to clients as updates become available
+  postDb.push(newFeedback);
+  fs.writeFileSync("./Develop/db/db.json",JSON.stringify(postDb));
+  res.json(postDb);
 });
 
+// this is the delete fucntion 
 router.delete('/api/notes/:id', (req, res) => {
     let data = fs.readFileSync("./Develop/db/db.json", "utf8");
     const dataJSON =  JSON.parse(data);
