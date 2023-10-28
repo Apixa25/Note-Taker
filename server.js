@@ -5,7 +5,7 @@ const api_routes = require('./Develop/routes/api-routes')
 // const path = require('path');
 // setting up the server
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // handeling asynchronous processes
 // const readFileAsync = util.promisify(fs.readFile);
