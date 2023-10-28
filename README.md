@@ -1,4 +1,4 @@
-# Simple And Easy Note Taker
+# Simple And Easy Note Taker 📝
 
 
 ## Technology Used To Build This Project
@@ -7,9 +7,8 @@
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white">
-  
+ <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white">
 </p>
-
 
 [![ExpressJS Badge](https://img.shields.io/badge/-Express.JS-ff781f?style=for-the-badge&labelColor=black&logo=express&logoColor=FF781F)](#) [![Nodejs Badge](https://img.shields.io/badge/-Node.js-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)](#) 
 
@@ -18,31 +17,25 @@
 
 ## Description 
 
+This is a simple and clean note-taking application.  You run it in your browser. You make and “save” notes and they are saved persistently.  That means if you close your browser and turn your computer off the notes you made will still be there the next time you open the note taker. Your notes will stay there till you choose to delete them.
 
+This application uses an Express.js back end. And it saves, retrieves, and deletes notes from a JSON file. 
 
-Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
-
-The quality of a README often differentiates a good project from a bad project. A good one takes advantage of the opportunity to explain and showcase what your application does, justify the technologies used, and even talk about some of the challenges you faced and features you hope to implement in the future. A good README helps you stand out among the large crowd of developers putting their work on GitHub.
-
-There's no one right way to structure a good README. There is one very wrong way, however, and that is to not include a README at all or to create a very anemic one. This guide outlines a few best practices. As you progress in your career, you will develop your own ideas about what makes a good README.
-
-At a minimum, your project README needs a title and a short description explaining the what, why, and how. What was your motivation? Why did you build this project? (Note: The answer is not "Because it was a homework assignment.") What problem does it solve? What did you learn? What makes your project stand out? 
-
-Lastly, if your project is deployed, include a link to the deployed application here.
-
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
 
 # See The Note Taker In Action
 
 ![Not Taker In Action](./Assets/11-express-homework-demo.gif)
 
-## Learning Points 
 
-
+## How To Install This App
+1. Clone the repository from my Github account
+2. Go to the folder that has the cloned files and using your terminal run "npm install" that will install the dependencies you need, (Express, and UUID).
+3. Then you can run "npm start" in that same console window and it will say "This bad boy is running! at http://localhost:3000 🚀" 
+4. Then open your browser to localhost:3000 
+5. Or you could simply use the App off of the Heroku site! But I figure you want to use the code. 😁
 
 ### Steven Sills II
+As always if you made it this far your a rock-star and I really appreciate you!  If you would like to contact me or see more of my work click the links below!
 
 <a href="mailto: stevensills2@gmail.com" target="_blank"><img align="center" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="paperpatch"/></a>
 <a href="https://www.linkedin.com/in/steven-sills-ii-90781b53/" target="_blank"><img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="paperpatch"/></a>

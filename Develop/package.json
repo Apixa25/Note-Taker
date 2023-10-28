@@ -4,11 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-     "devStart": "nodemon server.js"
+     "devStart": "nodemon server.js",
+     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Steven Sills II",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "uuid": "^8.3.2"
   }
 }
